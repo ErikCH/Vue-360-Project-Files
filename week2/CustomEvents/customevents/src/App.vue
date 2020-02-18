@@ -1,17 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <List v-model="fruits" @ev="change()" :items="fruits" />
+    <h3>This is the Parent Fruits Array {{ fruits }}</h3>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import List from "./components/List.vue";
 export default {
   name: "App",
-  components: {
-    HelloWorld
+  components: { List },
+  data() {
+    return {
+      fruits: ["apple", "strawberry", "bannana"],
+      fruit: "bobby"
+    };
+  },
+  methods: {
+    change() {
+      this.fruits.push(this.fruit);
+    }
   }
 };
 </script>
