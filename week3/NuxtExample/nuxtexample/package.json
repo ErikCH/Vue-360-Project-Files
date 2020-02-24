@@ -1,0 +1,19 @@
+{
+  "name": "nuxtexample",
+  "version": "1.0.0",
+  "description": "My astounding Nuxt.js project",
+  "author": "Erik Hanchett",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^1.0.0"
+  }
+}
