@@ -5,14 +5,6 @@ export default {
       lightColor: "Green"
     };
   },
-  render() {
-    return this.$scopedSlots.default({
-      on: this.lightColor,
-      setGreen: this.setGreen,
-      setYellow: this.setYellow,
-      setRed: this.setRed
-    });
-  },
   methods: {
     setGreen() {
       this.lightColor = "Green";
@@ -23,6 +15,14 @@ export default {
     setRed() {
       this.lightColor = "Red";
     }
+  },
+  render() {
+    return this.$scopedSlots.default({
+      on: this.lightColor,
+      setGreen: this.setGreen,
+      setYellow: this.setYellow,
+      setRed: this.setRed
+    });
   }
 };
 </script>
