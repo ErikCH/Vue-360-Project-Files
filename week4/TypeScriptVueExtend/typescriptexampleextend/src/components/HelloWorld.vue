@@ -7,6 +7,19 @@ import Vue from "vue";
 
 export default Vue.extend({
   name: "HelloWorld",
+  data(){
+    return {
+      firstName: 'erik' as string
+    }
+
+  },
+  methods: {
+    clicked(): number{
+      const newFirstName: string = this.firstName;
+      return  newFirstName; 
+    }
+
+  },
   props: {
     msg: String
   }
