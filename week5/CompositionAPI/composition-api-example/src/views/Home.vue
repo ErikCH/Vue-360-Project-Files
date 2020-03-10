@@ -1,18 +1,57 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h3>{{count}}</h3>
+    <h4>computed {{cc}}</h4>
+    <button @click="counter">count</button>
+    <User name="John" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import { reactive, toRefs, computed, watch } from "@vue/composition-api";
+import User from "@/components/User.vue";
 
 export default {
   name: "Home",
-  components: {
-    HelloWorld
+  components: { User },
+  setup() {
+    /**
+    Data Object
+     */
+    let c = reactive({
+      count: 0,
+      counter: () => {
+        c.count++;
+      },
+      cc: computed(() => {
+        return c.count + 1;
+      })
+    });
+
+    const w = watch(
+      () => c.count,
+      (current, prev) => {
+        console.log("current", current);
+        console.log("prev", prev);
+      }
+    );
+
+    // const cc = computed(() => {
+    //   return c.count + 1;
+    // });
+
+    // let counter = ref(0);
+    /**
+    methods
+     */
+    // function count() {
+    //   counter.value++;
+    // }
+    return {
+      ...toRefs(c),
+      w
+    };
   }
 };
 </script>
