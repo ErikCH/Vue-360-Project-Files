@@ -4,10 +4,10 @@
     <!-- <h3 v-show="false">Hi</h3> -->
     <br />
     <h3>{{counter}}</h3>
-    <form action>
-      <input @keyup.enter="submit" type="text" />
-      <button v-on:click.prevent="clicked">Submit</button>
-    </form>
+    <!-- <form action>-->
+      <input @keyup.prevent.enter="submit" type="text" />
+       <button v-on:click.prevent="clicked">Submit</button>
+    <!-- </form>-->
     <!-- <button v-on:click="clicked">Click Me</button> -->
   </div>
 </template>
@@ -28,6 +28,7 @@ export default {
       alert("hit enter");
     },
     clicked(event) {
+      console.log('here')
       console.log(event);
       this.counter++;
     }
